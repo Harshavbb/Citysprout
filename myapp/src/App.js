@@ -7,9 +7,11 @@ function MyButton() {
   const navigate = useNavigate(); // Use the useNavigate hook
 
   return (
+    <div className='divlog'>
     <button className = 'b1' onClick={() => navigate('/login')}>
       Login
     </button>
+    </div>
   );
 }
 

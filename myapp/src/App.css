@@ -16,11 +16,18 @@ h1 {
 }
 .b1{
   border-radius: 100px;
-  padding: 20px 65px;
+  padding: 20px 50px;
   border: none;
   color: white;
   background-color: rgb(26, 170, 53);
  
+ 
+}
+
+.divlog{
+  text-align: left;
+  padding: 0px 200px;
+   
 }
 
 .mainp{
