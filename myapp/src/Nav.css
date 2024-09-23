@@ -1,28 +1,40 @@
-.topnav {
-    background-color: #61dc86;
-    overflow: hidden;
-  }
-  
-  /* Style the links inside the navigation bar */
-  .topnav a {
-    float: left;
-    color: #120c0c;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-    font-size: 17px;
-  }
-  
-  /* Change the color of links on hover */
-  .topnav a:hover {
-    background-color: #19a733;
-    color: black;
-    border-radius: 8px;
-  }
-  
-  /* Add a color to the active/current link */
-  .topnav a.active {
-    background-color: rgb(26, 170, 53);
-    color: white;
-    border-radius: 8px;
-  }
+h1 {
+  text-align: center;
+}
+
+h2 {
+  text-align: left;
+  font-size: 50px;
+  margin: 20px; /* Adjust margin */
+}
+
+button {
+  border-radius: 10px;
+  padding: 20px 65px;
+  border: none;
+  color: white;
+  background-color: rgb(26, 170, 53);
+  margin-top: 20px; /* Adjust margin for spacing */
+}
+
+p {
+  text-align: left;
+  font-size: 15px;
+  margin: 20px; /* Adjust margin */
+}
+
+
+img {
+  width: 700px;
+  display: block; /* Makes sure the image is a block element */
+  margin: 20px auto; /* Center the image */
+}
+
+/* Add styles specific to login page if needed */
+.login-form {
+  max-width: 400px;
+  margin: 50px auto; /* Center the login form */
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+}

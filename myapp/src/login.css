@@ -1,0 +1,57 @@
+/* login.css */
+
+body {
+  background-color: #f0f0f0; /* Light background for contrast */
+}
+
+.login-container {
+  max-width:400px;
+  margin: 100px auto; /* Center the login form */
+  padding: 20px 100px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  background-color: #dbe9dc; /* White background for the form */
+}
+
+
+
+
+.form-group {
+  margin-bottom: 15px; /* Space between form elements */
+}
+
+label {
+  display: block; /* Labels above inputs */
+  margin-bottom: 5px; /* Space below labels */
+  color: #1d0909; /* Softer color for labels */
+}
+
+input {
+  width: 90%; /* Full width */
+  padding: 15px; /* Padding for inputs */
+  border: 1px solid #ccc;
+  border-radius: 15px;
+  transition: border 0.3s; /* Smooth transition for border on focus */
+}
+
+input:focus {
+  border: 1px solid #007bff; /* Change border color on focus */
+  outline: none; /* Remove default outline */
+}
+
+.button1 {
+  width: 100%; /* Full width button */
+  border-radius: 15px;
+  padding: 10px;
+  border: none;
+  color: white;
+  background-color: rgb(16, 174, 4); /* Button color */  
+  cursor: pointer;
+  font-size: 16px; /* Font size */
+  transition: background-color 0.3s; /* Smooth background color change */
+}
+
+.button1:hover {
+  background-color: rgb(89, 238, 89); /* Darker shade on hover */
+}

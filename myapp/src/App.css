@@ -1,35 +1,64 @@
-h1{
-  text-align: center;
-  
+/* App.css */
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: white;
 }
 
-h2{
-  text-align:left;
-  font-size: 50px;
-  position: absolute;
-  top: 150px;
-  right: 950px;
-  
+h1 {
+  text-align: left;
 }
-button{
-  position: absolute;
-  
-  top: 550px;
-  right:1100px;
-  border-radius: 10px;
+
+.mainh2{
+  text-align: left;
+  padding: 100px 180px;
+}
+.b1{
+  border-radius: 100px;
   padding: 20px 65px;
   border: none;
   color: white;
-  background-color:rgb(26, 170, 53);
-  
-
+  background-color: rgb(26, 170, 53);
+ 
 }
 
-p{
-  text-align:left;
+.mainp{
+  text-align:start;
   font-size: 15px;
-  position: absolute;
-  top: 400px;
-  right: 1000px;
-  
+  padding: 0px 180px;
+  top: 150px;
+  left: 100px;
+}
+
+
+.mainlogo {
+  width: 800px;
+  display:flex;
+  padding: 100px 100px;
+  float: right; /* Aligns the image to the right */
+}
+
+.topnav {
+  background-color: #28a911;
+  overflow: hidden;
+}
+
+.topnav a {
+  float: left;
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.topnav .active {
+  background-color: #4CAF50; /* Active link color */
+  color: white;
 }
