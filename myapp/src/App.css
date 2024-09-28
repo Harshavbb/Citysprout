@@ -39,13 +39,15 @@ h1 {
 }
 
 
-.mainlogo {
-  width: 800px;
-  display:flex;
-  padding: 100px 100px;
-  float: right; /* Aligns the image to the right */
+.right-image {
+  position: absolute;
+  right: 0; /* Align to the right of the screen */
+  top: 50%; /* Center the image vertically */
+  transform: translateY(-50%); /* To ensure perfect vertical center alignment */
+  width: 600px; /* Set the desired image width */
+  height: auto; /* Keep the aspect ratio */
+  margin-right: 100px; /* Optional: Space between the image and the screen's right edge */
 }
-
 .topnav {
   background-color: #28a911;
   overflow: hidden;
