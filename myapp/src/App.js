@@ -23,7 +23,8 @@ function Mynav() {
       <Link className="active" to="/">Home</Link> {/* Link for Home */}
       <Link to="/space-input">Space input</Link> {/* Link for Space input */}
       <a href="#news">Blog</a> {/* Keeping Blog as anchor if not implemented */}
-      <Link to="/about">About</Link> {/* Link for About */}
+      <Link to="/about">About</Link>
+      <a href="/Profile">Profile</a> {/* Link for About */}
       <a href="#contact">Contact</a> {/* Keeping Contact as anchor if not implemented */}
     </nav>
   );
