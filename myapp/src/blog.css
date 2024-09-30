@@ -1,0 +1,18 @@
+/* FarmingMethods.css */
+.farming-methods-container {
+    padding: 20px;
+  }
+  
+  .farming-method {
+    margin-bottom: 20px;
+  }
+  
+  .farming-method h2 {
+    color: #2c3e50;
+  }
+  
+  .farming-method p {
+    font-size: 16px;
+    line-height: 1.6;
+  }
+  

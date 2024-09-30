@@ -1,6 +1,7 @@
 // login.js
 import './login.css';
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom'; // Import useNavigate
 
 export default function LoginPage() {
   const [username, setUsername] = useState('');
@@ -10,6 +11,7 @@ export default function LoginPage() {
   const [confirmPassword, setConfirmPassword] = useState('');
   const [error, setError] = useState('');
   const [isRegistering, setIsRegistering] = useState(false); // Toggle between login and register
+  const navigate = useNavigate(); // Initialize useNavigate
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -23,7 +25,7 @@ export default function LoginPage() {
       }
 
       try {
-        const response = await fetch('http://localhost:5000/api/auth/register', {
+        const response = await fetch('http://localhost:5000/api/register', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
@@ -34,7 +36,8 @@ export default function LoginPage() {
         const data = await response.json();
         if (response.ok) {
           console.log('Registration successful:', data);
-          // Redirect or update UI after successful registration
+          // Optionally navigate to login after successful registration
+          // navigate('/login'); 
         } else {
           setError(data.message); // Set error message if registration fails
         }
@@ -45,7 +48,7 @@ export default function LoginPage() {
     } else {
       // Login submission
       try {
-        const response = await fetch('http://localhost:5000/api/auth/login', {
+        const response = await fetch('http://localhost:5000/api/login', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
@@ -57,7 +60,7 @@ export default function LoginPage() {
         if (response.ok) {
           console.log('Login successful:', data);
           localStorage.setItem('token', data.token); // Store token
-          // Redirect or update UI after successful login
+          navigate('/dashboard'); // Redirect to dashboard on successful login
         } else {
           setError(data.message); // Set error message if login fails
         }
