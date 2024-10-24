@@ -19,6 +19,8 @@ mongoose
   .then(() => console.log('Connected to MongoDB'))
   .catch((err) => console.error('Could not connect to MongoDB', err));
 
+// 1. User Authentication (Registration, Login, and Token Verification)
+
 // Define a schema for User Registration
 const userSchema = new mongoose.Schema({
   username: { type: String, required: true, unique: true },
@@ -28,7 +30,7 @@ const userSchema = new mongoose.Schema({
 });
 
 // Create a model from the user schema
-const User = mongoose.model('login', userSchema);
+const User = mongoose.model('User', userSchema);
 
 // POST route for User Registration
 app.post('/api/register', async (req, res) => {
@@ -110,6 +112,8 @@ app.get('/api/user', authenticateToken, async (req, res) => {
   }
 });
 
+// 2. Space Input Functionality
+
 // Define a schema for Space Input
 const spaceSchema = new mongoose.Schema({
   Username: String,
@@ -122,7 +126,7 @@ const spaceSchema = new mongoose.Schema({
 });
 
 // Create a model from the space schema
-const SpaceInput = mongoose.model('Spaceinputs', spaceSchema);
+const SpaceInput = mongoose.model('SpaceInput', spaceSchema);
 
 // POST route to save space input data
 app.post('/api/space-input', async (req, res) => {
@@ -143,6 +147,45 @@ app.post('/api/space-input', async (req, res) => {
     res.status(201).send('Space input data saved successfully');
   } catch (err) {
     res.status(400).send('Error saving data');
+  }
+});
+
+// 3. Blog Post Functionality
+
+// Define a schema for Blog Post
+const blogPostSchema = new mongoose.Schema({
+  title: { type: String, required: true },
+  content: { type: String, required: true },
+  author: { type: String, required: true },
+  date: { type: Date, default: Date.now },
+});
+
+// Create a model from the blog post schema
+const BlogPost = mongoose.model('BlogPost', blogPostSchema);
+
+// GET route to fetch all blog posts
+app.get('/api/blog', async (req, res) => {
+  try {
+    const posts = await BlogPost.find().sort({ date: -1 }); // Sort by date descending
+    res.json(posts);
+  } catch (error) {
+    console.error(error);
+    res.status(500).send('Server error');
+  }
+});
+
+// POST route to create a new blog post
+app.post('/api/blog', async (req, res) => {
+  const { title, content, author } = req.body;
+
+  const newPost = new BlogPost({ title, content, author });
+
+  try {
+    const savedPost = await newPost.save();
+    res.status(201).json(savedPost);
+  } catch (error) {
+    console.error(error);
+    res.status(400).send('Error saving the blog post');
   }
 });
 
