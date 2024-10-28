@@ -189,6 +189,45 @@ app.post('/api/blog', async (req, res) => {
   }
 });
 
+// 4. Land Functionality
+
+// Define a schema for Land
+const landSchema = new mongoose.Schema({
+  type: { type: String, required: true },
+  area: { type: Number, required: true },
+  location: { type: String, required: true },
+  contactDetails: { type: String, required: true },
+});
+
+// Create a model from the land schema
+const Land = mongoose.model('Land', landSchema);
+
+// GET route to fetch all lands
+app.get('/api/lands', async (req, res) => {
+  try {
+    const lands = await Land.find();
+    res.json(lands);
+  } catch (error) {
+    console.error(error);
+    res.status(500).send('Server error');
+  }
+});
+
+// POST route to add a new land
+app.post('/api/lands', async (req, res) => {
+  const { type, area, location, contactDetails } = req.body;
+
+  const newLand = new Land({ type, area, location, contactDetails });
+
+  try {
+    const savedLand = await newLand.save();
+    res.status(201).json(savedLand);
+  } catch (error) {
+    console.error(error);
+    res.status(400).send('Error saving the land');
+  }
+});
+
 // Start the server
 const port = 5000;
 app.listen(port, () => {

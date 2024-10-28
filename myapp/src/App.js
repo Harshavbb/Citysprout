@@ -5,7 +5,9 @@ import MyForm from './login';
 import SpaceInput from './input';
 import About from './About';
 import Dashboard from './Dashboard';
-import Blog from './Blog'; // Import Blog component instead of FarmingMethods
+import Blog from './blog'; // Import Blog component instead of FarmingMethods
+import LandList from './components/LandList';
+import AddLand from './components/AddLand';
 
 function MyButton() {
   const navigate = useNavigate(); 
@@ -25,9 +27,22 @@ function Mynav() {
       <Link className="active" to="/">Home</Link>
       <Link to="/profile">Profile</Link>
       <Link to="/space-input">Space Input</Link>
+      <Link to="/urbanspaces">Urban Spaces</Link>
       <Link to="/blog">Blog</Link> {/* Update link to point to the Blog component */}
       <Link to="/about">About</Link>
     </nav>
+  );
+}
+
+function UrbanSpaces() {
+  return (
+    <div>
+      <h2>Urban Spaces</h2>
+      <Link to="/add-land">
+        <button>Add Land</button>
+      </Link>
+      <LandList />
+    </div>
   );
 }
 
@@ -56,6 +71,8 @@ export default function MyApp() {
             <Route path="/about" element={<About />} />
             <Route path="/blog" element={<Blog />} /> {/* Route to Blog */}
             <Route path="/dashboard" element={<Dashboard />} />
+            <Route path="/urbanspaces" element={<UrbanSpaces />} />
+            <Route path="/add-land" element={<AddLand />} />
             <Route path="*" element={<Navigate to="/" />} /> {/* Redirect any undefined routes to home */}
           </Routes>
         </div>
