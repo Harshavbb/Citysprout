@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import './Bloglist.css';
 
 const BlogList = ({ refresh }) => {
   const [posts, setPosts] = useState([]);
@@ -18,14 +19,18 @@ const BlogList = ({ refresh }) => {
   }, [refresh]); // Refetch when the 'refresh' prop changes
 
   return (
-    <div>
-      <h2>Blog Posts</h2>
+    <div className="blog-container">
+      <div className="blog-header">
+        <h2>Blog Posts</h2>
+      </div>
       {posts.map(post => (
-        <div key={post._id}>
-          <h3>{post.title}</h3>
-          <p>{post.content}</p>
-          <p><strong>By:</strong> {post.author}</p>
-          <p><em>Posted on: {new Date(post.date).toLocaleDateString()}</em></p>
+        <div className="post" key={post._id}>
+          <h3 className="post-title">{post.title}</h3>
+          <p className="post-content">{post.content}</p>
+          <p className="post-meta">
+            <strong>By:</strong> {post.author} | 
+            <em> Posted on: {new Date(post.date).toLocaleDateString()}</em>
+          </p>
         </div>
       ))}
     </div>

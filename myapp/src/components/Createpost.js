@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import './Createpost.css'; 
 
 const CreatePost = ({ onPostCreated }) => {
   const [title, setTitle] = useState('');
@@ -9,8 +10,8 @@ const CreatePost = ({ onPostCreated }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     const newPost = { title, content, author };
-    
-    axios.post('http://localhost:5000/api/blog', newPost) // Use full backend URL
+
+    axios.post('http://localhost:5000/api/blog', newPost)
       .then(response => {
         console.log('Blog post created:', response.data);
         onPostCreated(); // Trigger parent component to refresh the post list
@@ -24,7 +25,7 @@ const CreatePost = ({ onPostCreated }) => {
   };
 
   return (
-    <div>
+    <div className="create-post-container">
       <h2>Create a New Post</h2>
       <form onSubmit={handleSubmit}>
         <div>
